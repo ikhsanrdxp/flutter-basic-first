@@ -116,7 +116,7 @@ class RegisterPage extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 100,
+                        height: 101,
                       ),
                       Align(
                         alignment: Alignment.bottomRight,
