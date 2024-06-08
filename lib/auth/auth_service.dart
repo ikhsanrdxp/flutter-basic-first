@@ -46,4 +46,8 @@ class AuthService {
       return e.toString();
     }
   }
+
+  Future<void> logout() async{
+    await FirebaseAuth.instance.signOut();
+  } 
 }
