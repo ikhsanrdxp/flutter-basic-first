@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login/auth/auth_service.dart';
 import 'package:login/pages/login.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -6,6 +7,10 @@ class RegisterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController _nameController = TextEditingController();
+    final TextEditingController _emailController = TextEditingController();
+    final TextEditingController _passwordController = TextEditingController();
+    final TextEditingController _password2Controller = TextEditingController();
     return Scaffold(
       body: Stack(
         children: [
@@ -43,9 +48,10 @@ class RegisterPage extends StatelessWidget {
                   padding: const EdgeInsets.all(50),
                   child: Column(
                     children: [
-                      const TextField(
+                      TextField(
+                        controller: _nameController,
                         keyboardType: TextInputType.name,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                             label: Text(
                           "Full Name",
                           style: TextStyle(
@@ -55,9 +61,10 @@ class RegisterPage extends StatelessWidget {
                           ),
                         )),
                       ),
-                      const TextField(
+                      TextField(
+                        controller: _emailController,
                         keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                             label: Text(
                           "Email",
                           style: TextStyle(
@@ -67,10 +74,11 @@ class RegisterPage extends StatelessWidget {
                           ),
                         )),
                       ),
-                      const TextField(
+                      TextField(
+                        controller: _passwordController,
                         keyboardType: TextInputType.visiblePassword,
                         obscureText: true,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                             suffixIcon: Icon(
                               Icons.visibility,
                               color: Colors.grey,
@@ -84,10 +92,11 @@ class RegisterPage extends StatelessWidget {
                               ),
                             )),
                       ),
-                      const TextField(
+                      TextField(
+                        controller: _password2Controller,
                         keyboardType: TextInputType.visiblePassword,
                         obscureText: true,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                             suffixIcon: Icon(
                               Icons.visibility,
                               color: Colors.grey,
@@ -105,6 +114,19 @@ class RegisterPage extends StatelessWidget {
                         height: 70,
                       ),
                       InkWell(
+                        onTap: () async {
+                          final message = await AuthService().registration(
+                              email: _emailController.text,
+                              password: _passwordController.text);
+                          if (message!.contains('Success')) {
+                            Navigator.of(context)
+                                .pushReplacement(MaterialPageRoute(
+                              builder: (context) => LoginPage(),
+                            ));
+                          }
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(SnackBar(content: Text(message)));
+                        },
                         child: Container(
                           height: 55,
                           width: 300,

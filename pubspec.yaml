@@ -70,13 +70,13 @@ flutter:
   fonts:
     - family: AbhayaLibre
       fonts:
-        - asset: assets/AbhayaLibre-Bold.ttf
+        - asset: assets/fonts/AbhayaLibre-Bold.ttf
           weight: 700
-        - asset: assets/AbhayaLibre-ExtraBold.ttf
+        - asset: assets/fonts/AbhayaLibre-ExtraBold.ttf
           weight: 900
-        - asset: assets/AbhayaLibre-Medium.ttf
+        - asset: assets/fonts/AbhayaLibre-Medium.ttf
           weight: 500
-        - asset: assets/AbhayaLibre-Regular.ttf
+        - asset: assets/fonts/AbhayaLibre-Regular.ttf
           weight: 400
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic

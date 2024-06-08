@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:login/auth/auth_service.dart';
+import 'package:login/pages/home.dart';
 import 'package:login/pages/register.dart';
 
 class LoginPage extends StatelessWidget {
@@ -6,6 +8,8 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController _emailController = TextEditingController();
+    final TextEditingController _passwordController = TextEditingController();
     return Scaffold(
       body: Stack(
         children: [
@@ -42,21 +46,23 @@ class LoginPage extends StatelessWidget {
                   padding: const EdgeInsets.all(50),
                   child: Column(
                     children: [
-                      const TextField(
+                      TextField(
+                        controller: _emailController,
                         keyboardType: TextInputType.name,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                             label: Text(
-                          "User Name",
+                          "Email",
                           style: TextStyle(
                               color: Color.fromRGBO(83, 60, 147, 85),
                               fontFamily: 'AbhayaLibre',
                               fontWeight: FontWeight.w700),
                         )),
                       ),
-                      const TextField(
+                      TextField(
+                        controller: _passwordController,
                         keyboardType: TextInputType.visiblePassword,
                         obscureText: true,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                             suffixIcon: Icon(
                               Icons.visibility,
                               color: Colors.grey,
@@ -87,6 +93,19 @@ class LoginPage extends StatelessWidget {
                         height: 70,
                       ),
                       InkWell(
+                        onTap: () async {
+                          final message = await AuthService().login(
+                              email: _emailController.text,
+                              password: _passwordController.text);
+                          if (message!.contains('Success')) {
+                            Navigator.of(context)
+                                .pushReplacement(MaterialPageRoute(
+                              builder: (context) => const HomePage(),
+                            ));
+                          }
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(SnackBar(content: Text(message)));
+                        },
                         child: Container(
                           height: 55,
                           width: 300,
@@ -119,11 +138,11 @@ class LoginPage extends StatelessWidget {
                             const Text(
                               "Don't Have an Account?",
                               style: TextStyle(
-                                  fontFamily: 'AbhayaLibre',
-                                  fontWeight: FontWeight.w900,
-                                  fontSize: 15,
-                                  color: Colors.grey,
-                                  ),
+                                fontFamily: 'AbhayaLibre',
+                                fontWeight: FontWeight.w900,
+                                fontSize: 15,
+                                color: Colors.grey,
+                              ),
                             ),
                             TextButton(
                               onPressed: () {
