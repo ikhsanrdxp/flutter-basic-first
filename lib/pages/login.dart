@@ -14,23 +14,24 @@ class LoginPage extends StatelessWidget {
             height: double.infinity,
             decoration: const BoxDecoration(
                 gradient: LinearGradient(colors: [
-              Color(0xffB81736),
-              Color(0xff281537),
+              Color.fromRGBO(83, 60, 147, 85),
+              Color.fromRGBO(83, 60, 147, 1),
             ])),
             child: const Padding(
-              padding: EdgeInsets.only(top: 60, left: 60),
+              padding: EdgeInsets.only(top: 100, left: 60),
               child: Text(
                 "Hello\nSign in!",
                 style: TextStyle(
-                    fontSize: 30,
+                    fontSize: 35,
                     color: Colors.white,
-                    fontWeight: FontWeight.bold),
+                    fontWeight: FontWeight.w900,
+                    fontFamily: 'AbhayaLibre'),
               ),
             ),
           ),
           SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.only(top: 200),
+              padding: const EdgeInsets.only(top: 250),
               child: Container(
                 decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(
@@ -47,8 +48,9 @@ class LoginPage extends StatelessWidget {
                             label: Text(
                           "User Name",
                           style: TextStyle(
-                            color: Color(0xffB81736),
-                          ),
+                              color: Color.fromRGBO(83, 60, 147, 85),
+                              fontFamily: 'AbhayaLibre',
+                              fontWeight: FontWeight.w700),
                         )),
                       ),
                       const TextField(
@@ -62,8 +64,9 @@ class LoginPage extends StatelessWidget {
                             label: Text(
                               "Password",
                               style: TextStyle(
-                                color: Color(0xffB81736),
-                              ),
+                                  color: Color.fromRGBO(83, 60, 147, 85),
+                                  fontFamily: 'AbhayaLibre',
+                                  fontWeight: FontWeight.w700),
                             )),
                       ),
                       const SizedBox(
@@ -71,7 +74,14 @@ class LoginPage extends StatelessWidget {
                       ),
                       const Align(
                         alignment: Alignment.centerRight,
-                        child: Text("Forgot Password?"),
+                        child: Text(
+                          "Forgot Password?",
+                          style: TextStyle(
+                            color: Color.fromRGBO(83, 60, 147, 85),
+                            fontFamily: 'AbhayaLibre',
+                            fontWeight: FontWeight.w900,
+                          ),
+                        ),
                       ),
                       const SizedBox(
                         height: 70,
@@ -83,16 +93,17 @@ class LoginPage extends StatelessWidget {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(30),
                               gradient: const LinearGradient(colors: [
-                                Color(0xffB81736),
-                                Color(0xff281537),
+                                Color.fromRGBO(80, 137, 198, 1),
+                                Color.fromRGBO(83, 60, 147, 85),
                               ])),
                           child: const Center(
                             child: Text(
                               "SIGN IN",
                               style: TextStyle(
                                   color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 17),
+                                  fontFamily: 'AbhayaLibre',
+                                  fontWeight: FontWeight.w900,
+                                  fontSize: 20),
                             ),
                           ),
                         ),
@@ -108,9 +119,11 @@ class LoginPage extends StatelessWidget {
                             const Text(
                               "Don't Have an Account?",
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'AbhayaLibre',
+                                  fontWeight: FontWeight.w900,
                                   fontSize: 15,
-                                  color: Colors.grey),
+                                  color: Colors.grey,
+                                  ),
                             ),
                             TextButton(
                               onPressed: () {
@@ -121,9 +134,10 @@ class LoginPage extends StatelessWidget {
                               child: const Text(
                                 "Sign up",
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 17,
-                                    color: Color(0xff281537)),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 17,
+                                  color: Color.fromRGBO(83, 60, 147, 85),
+                                ),
                               ),
                             )
                           ],
