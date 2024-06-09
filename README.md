@@ -9,7 +9,7 @@ Features that are already available:
 1. Firebase
 2. Login and register
 3. A simple homepage with a calendar
-4. Simple routing
+4. Simply routing
 
 
 Features that will be added in the future:
