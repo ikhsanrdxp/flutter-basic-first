@@ -125,6 +125,7 @@ class RegisterPage extends StatelessWidget {
                               builder: (context) => const LoginPage(),
                             ));
                           }
+                          // ignore: use_build_context_synchronously
                           ScaffoldMessenger.of(context)
                               .showSnackBar(SnackBar(content: Text(message)));
                         },

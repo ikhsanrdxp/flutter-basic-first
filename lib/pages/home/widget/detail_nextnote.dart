@@ -68,7 +68,7 @@ class DetailNextnote extends StatelessWidget {
                     child: Text(
                       '30 Min',
                       style: TextStyle(
-                        color: const Color.fromRGBO(228, 184, 117, 1),
+                        color: Color.fromRGBO(228, 184, 117, 1),
                           fontWeight: FontWeight.bold,
                           fontFamily: 'AbhayaLibre'),
                     ),

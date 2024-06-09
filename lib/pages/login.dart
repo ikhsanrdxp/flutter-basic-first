@@ -98,11 +98,13 @@ class LoginPage extends StatelessWidget {
                               email: emailController.text,
                               password: passwordController.text);
                           if (message!.contains('Success')) {
+                            // ignore: use_build_context_synchronously
                             Navigator.of(context)
                                 .pushReplacement(MaterialPageRoute(
                               builder: (context) => const HomePage(),
                             ));
                           }
+                          // ignore: use_build_context_synchronously
                           ScaffoldMessenger.of(context)
                               .showSnackBar(SnackBar(content: Text(message)));
                         },

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:login/pages/home/home.dart';
 import 'package:login/pages/login.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:login/pages/profile/profile.dart';
 import 'package:login/pages/register.dart';
 import 'firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart' hide EmailAuthProvider;
@@ -34,11 +35,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/home',
+      initialRoute: '/',
       routes: {
         '/' : (context) => const LoginPage(),
         '/home' : (context) => const HomePage(),
         '/register' : (context) => const RegisterPage(),
+        '/profile' : (context) => const ProfilePage(),
       },
     );
   }
