@@ -1,6 +1,28 @@
-# login
+# login authentication with firebase
 
 A new Flutter project.
+
+Here I am starting to learn Flutter.. .
+
+
+Features that are already available:
+1. Firebase
+2. Login and register
+3. A simple homepage with a calendar
+4. Simply routing
+
+
+Features that will be added in the future:
+1. Persisted authentication
+2. Routing with BLoC
+3. bloc provider
+4. bloc consumer
+5. bloc state
+6. bloc listener
+7. profile
+8. -
+9. -
+
 
 ## Getting Started
 
