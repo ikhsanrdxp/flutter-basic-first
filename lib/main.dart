@@ -1,16 +1,30 @@
+import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:login/pages/home/home.dart';
 import 'package:login/pages/login.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:login/pages/register.dart';
 import 'firebase_options.dart';
+import 'package:firebase_auth/firebase_auth.dart' hide EmailAuthProvider;
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized(); // Required for Firebase
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
+  FirebaseUIAuth.configureProviders([
+    EmailAuthProvider(),
+  ]);
+
+  // Both of the following lines are good for testing,
+  // but can be removed for release builds
+  await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
+  await FirebaseAuth.instance.signOut();
+
   runApp(const MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -18,9 +32,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      initialRoute: '/home',
+      routes: {
+        '/' : (context) => const LoginPage(),
+        '/home' : (context) => const HomePage(),
+        '/register' : (context) => const RegisterPage(),
+      },
     );
   }
 }

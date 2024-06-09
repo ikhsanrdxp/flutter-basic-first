@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login/auth/auth_service.dart';
-import 'package:login/pages/home.dart';
+import 'package:login/pages/home/home.dart';
 import 'package:login/pages/register.dart';
 
 class LoginPage extends StatelessWidget {
@@ -8,8 +8,8 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _emailController = TextEditingController();
-    final TextEditingController _passwordController = TextEditingController();
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
     return Scaffold(
       body: Stack(
         children: [
@@ -47,7 +47,7 @@ class LoginPage extends StatelessWidget {
                   child: Column(
                     children: [
                       TextField(
-                        controller: _emailController,
+                        controller: emailController,
                         keyboardType: TextInputType.name,
                         decoration: const InputDecoration(
                             label: Text(
@@ -59,7 +59,7 @@ class LoginPage extends StatelessWidget {
                         )),
                       ),
                       TextField(
-                        controller: _passwordController,
+                        controller: passwordController,
                         keyboardType: TextInputType.visiblePassword,
                         obscureText: true,
                         decoration: const InputDecoration(
@@ -95,8 +95,8 @@ class LoginPage extends StatelessWidget {
                       InkWell(
                         onTap: () async {
                           final message = await AuthService().login(
-                              email: _emailController.text,
-                              password: _passwordController.text);
+                              email: emailController.text,
+                              password: passwordController.text);
                           if (message!.contains('Success')) {
                             Navigator.of(context)
                                 .pushReplacement(MaterialPageRoute(

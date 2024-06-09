@@ -7,10 +7,10 @@ class RegisterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _nameController = TextEditingController();
-    final TextEditingController _emailController = TextEditingController();
-    final TextEditingController _passwordController = TextEditingController();
-    final TextEditingController _password2Controller = TextEditingController();
+    final TextEditingController nameController = TextEditingController();
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
+    final TextEditingController password2Controller = TextEditingController();
     return Scaffold(
       body: Stack(
         children: [
@@ -49,7 +49,7 @@ class RegisterPage extends StatelessWidget {
                   child: Column(
                     children: [
                       TextField(
-                        controller: _nameController,
+                        controller: nameController,
                         keyboardType: TextInputType.name,
                         decoration: const InputDecoration(
                             label: Text(
@@ -62,7 +62,7 @@ class RegisterPage extends StatelessWidget {
                         )),
                       ),
                       TextField(
-                        controller: _emailController,
+                        controller: emailController,
                         keyboardType: TextInputType.emailAddress,
                         decoration: const InputDecoration(
                             label: Text(
@@ -75,7 +75,7 @@ class RegisterPage extends StatelessWidget {
                         )),
                       ),
                       TextField(
-                        controller: _passwordController,
+                        controller: passwordController,
                         keyboardType: TextInputType.visiblePassword,
                         obscureText: true,
                         decoration: const InputDecoration(
@@ -93,7 +93,7 @@ class RegisterPage extends StatelessWidget {
                             )),
                       ),
                       TextField(
-                        controller: _password2Controller,
+                        controller: password2Controller,
                         keyboardType: TextInputType.visiblePassword,
                         obscureText: true,
                         decoration: const InputDecoration(
@@ -116,12 +116,13 @@ class RegisterPage extends StatelessWidget {
                       InkWell(
                         onTap: () async {
                           final message = await AuthService().registration(
-                              email: _emailController.text,
-                              password: _passwordController.text);
+                              email: emailController.text,
+                              password: passwordController.text);
                           if (message!.contains('Success')) {
+                            // ignore: use_build_context_synchronously
                             Navigator.of(context)
                                 .pushReplacement(MaterialPageRoute(
-                              builder: (context) => LoginPage(),
+                              builder: (context) => const LoginPage(),
                             ));
                           }
                           ScaffoldMessenger.of(context)
