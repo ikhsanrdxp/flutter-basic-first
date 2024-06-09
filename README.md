@@ -2,9 +2,11 @@
 
 A new Flutter project.
 
-Here I am starting to learn Flutter:
+Here I am starting to learn Flutter.. .
+
+
 Features that are already available:
-1.Firebase
+1. Firebase
 2. Login and register
 3. A simple homepage with a calendar
 4. Simple routing
@@ -17,6 +19,9 @@ Features that will be added in the future:
 4. bloc consumer
 5. bloc state
 6. bloc listener
+7. profile
+8. -
+9. -
 
 
 ## Getting Started
