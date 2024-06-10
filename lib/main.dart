@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:login/pages/home/home.dart';
 import 'package:login/pages/login.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:login/pages/menu/main_product_page.dart';
 import 'package:login/pages/profile/profile.dart';
 import 'package:login/pages/register.dart';
 import 'firebase_options.dart';
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
         '/home' : (context) => const HomePage(),
         '/register' : (context) => const RegisterPage(),
         '/profile' : (context) => const ProfilePage(),
+        '/mainproduct' : (context) => const MainProductPage(),
       },
     );
   }
