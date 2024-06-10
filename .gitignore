@@ -45,3 +45,4 @@ app.*.map.json
 
 #other
 lib/firebase_options.dart
+firebase.json
