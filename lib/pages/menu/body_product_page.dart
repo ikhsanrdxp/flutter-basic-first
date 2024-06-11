@@ -100,7 +100,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
                 image: const DecorationImage(
-                    image: AssetImage('assets/images/angel-a-finno.jpg'),
+                    image: AssetImage('assets/images/pesto-ferara.jpg'),
                     fit: BoxFit.cover)),
           ),
           Align(

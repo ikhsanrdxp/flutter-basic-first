@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login/auth/auth_service.dart';
-import 'package:login/pages/home/home.dart';
+import 'package:login/pages/menu/main_product_page.dart';
 import 'package:login/pages/register.dart';
 
 class LoginPage extends StatelessWidget {
@@ -101,7 +101,7 @@ class LoginPage extends StatelessWidget {
                             // ignore: use_build_context_synchronously
                             Navigator.of(context)
                                 .pushReplacement(MaterialPageRoute(
-                              builder: (context) => const HomePage(),
+                              builder: (context) => const MainProductPage(),
                             ));
                           }
                           // ignore: use_build_context_synchronously

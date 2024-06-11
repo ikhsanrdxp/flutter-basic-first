@@ -19,7 +19,7 @@ class _MainProductPageState extends State<MainProductPage> {
         children: [
           // showing the header
           Container(
-            padding: const EdgeInsets.only(top: 25.0,left: 10,right: 10),
+            padding: const EdgeInsets.only(top: 30.0,left: 10,right: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
