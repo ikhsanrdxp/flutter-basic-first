@@ -104,14 +104,9 @@ class LoginPage extends StatelessWidget {
                               builder: (context) => const MainProductPage(),
                             ));
                           }
-<<<<<<< HEAD
-                          // print(message);
-=======
-                          print(message);
->>>>>>> 41c4ff695032a7cd2e1fe222f8665c71643231f9
                           // ignore: use_build_context_synchronously
-                          // ScaffoldMessenger.of(context)
-                          //     .showSnackBar(SnackBar(content: Text(message)));
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(SnackBar(content: Text(message)));
                         },
                         child: Container(
                           height: 55,
