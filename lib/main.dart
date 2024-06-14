@@ -1,5 +1,6 @@
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:login/pages/home/home.dart';
 import 'package:login/pages/login.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: '/mainproduct',
       routes: {

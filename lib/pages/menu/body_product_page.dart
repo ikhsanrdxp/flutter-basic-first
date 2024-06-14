@@ -2,6 +2,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:login/pages/profile/widget/color_and_text.dart';
 import 'package:login/utils/colors.dart';
+import 'package:login/utils/dimensions.dart';
 import 'package:login/widgets/bigtext.dart';
 import 'package:login/widgets/smalltext.dart';
 
@@ -38,11 +39,12 @@ class _ProductPageBodyState extends State<ProductPageBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        // slider section
         Container(
           // margin: EdgeInsets.all(10),
           padding: const EdgeInsets.only(top: 5),
           // color: Colors.redAccent,
-          height: 320,
+          height: Dimensions.pageView,
           child: PageView.builder(
               controller: pageController,
               itemCount: 5,
@@ -50,6 +52,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
                 return _buildPageItem(position);
               }),
         ),
+        // dots
         DotsIndicator(
           dotsCount: 5,
           position: _currenPageValue.toInt(),
@@ -60,7 +63,113 @@ class _ProductPageBodyState extends State<ProductPageBody> {
             activeShape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5.0)),
           ),
-        )
+        ),
+        // popular text
+        SizedBox(
+          height: Dimensions.height30,
+        ),
+        Container(
+          margin: EdgeInsets.only(left: Dimensions.width10),
+          child: Row(
+            children: [
+              BigText(
+                text: "Popular",
+                color: AppColor.mainBlackColor,
+              ),
+              SizedBox(
+                width: Dimensions.height10,
+              ),
+              const Icon(
+                Icons.circle,
+                size: 5,
+                color: AppColor.textColor,
+              ),
+              SizedBox(
+                width: Dimensions.height10,
+              ),
+              SmallText(
+                text: "Food pairing",
+                size: 12,
+              )
+            ],
+          ),
+        ),
+        // list of food and images
+        ListView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: 5,
+            itemBuilder: (context, index) {
+              return Container(
+                margin: EdgeInsets.only(
+                    left: Dimensions.width10,
+                    right: Dimensions.width10,
+                    bottom: Dimensions.height10),
+                child: Row(
+                  children: [
+                    // image section
+                    Container(
+                      width: 120,
+                      height: 120,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.amber,
+                          image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: AssetImage(
+                                  "assets/images/pesto-ferara.jpg"))),
+                    ),
+                    // text container
+                    Expanded(
+                      child: Container(
+                        height: 100,
+                        decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(20),
+                                bottomRight: Radius.circular(20)),
+                            color: Colors.white),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10, right: 10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              BigText(
+                                text: "Nutritious fruit meal in China",
+                                color: AppColor.titleColor,
+                              ),
+                              SmallText(text: "With Chinese characteristics",size: 14,color: AppColor.textColor,),
+                              const SizedBox(height: 10,),
+                              const Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  ColorAndText(
+                                      icon: Icons.circle_sharp,
+                                      text: "Normal",
+                                      color: AppColor.textColor,
+                                      iconColor: AppColor.iconColor1),
+                                  ColorAndText(
+                                      icon: Icons.location_on_sharp,
+                                      text: "1.7Km",
+                                      color: AppColor.textColor,
+                                      iconColor: AppColor.mainColor),
+                                  ColorAndText(
+                                      icon: Icons.watch_later_outlined,
+                                      text: "32min",
+                                      color: AppColor.textColor,
+                                      iconColor: AppColor.iconColor1),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              );
+            })
       ],
     );
   }
@@ -95,7 +204,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
       child: Stack(
         children: [
           Container(
-            height: 220,
+            height: Dimensions.pageViewContainer,
             margin: const EdgeInsets.only(left: 5, right: 5),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
@@ -106,8 +215,8 @@ class _ProductPageBodyState extends State<ProductPageBody> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              width: 300,
-              height: 120,
+              width: 250,
+              height: Dimensions.pageViewTextContainer,
               margin: const EdgeInsets.only(bottom: 20),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
@@ -156,8 +265,8 @@ class _ProductPageBodyState extends State<ProductPageBody> {
                         ),
                       ],
                     ),
-                    const SizedBox(
-                      height: 10,
+                    SizedBox(
+                      height: Dimensions.height20,
                     ),
                     const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
