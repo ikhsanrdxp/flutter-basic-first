@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/mainproduct',
+      initialRoute: '/',
       routes: {
         '/' : (context) => const LoginPage(),
         '/home' : (context) => const HomePage(),
