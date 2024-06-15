@@ -114,7 +114,7 @@ class _ProductPageBodyState extends State<ProductPageBody> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           color: Colors.amber,
-                          image: DecorationImage(
+                          image: const DecorationImage(
                               fit: BoxFit.cover,
                               image: AssetImage(
                                   "assets/images/pesto-ferara.jpg"))),

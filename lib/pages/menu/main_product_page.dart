@@ -14,8 +14,8 @@ class MainProductPage extends StatefulWidget {
 class _MainProductPageState extends State<MainProductPage> {
   @override
   Widget build(BuildContext context) {
-    print("current height is "+ MediaQuery.of(context).size.height.toString());
-    print("current width is "+ MediaQuery.of(context).size.width.toString());
+    // print("current height is "+ MediaQuery.of(context).size.height.toString());
+    // print("current width is "+ MediaQuery.of(context).size.width.toString());
     return Scaffold(
       body: Column(
         children: [
@@ -45,7 +45,7 @@ class _MainProductPageState extends State<MainProductPage> {
                 Column(
                   children: [
                     Container(
-                      height: 45,
+                      height: 40,
                       width: 40,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
@@ -61,7 +61,7 @@ class _MainProductPageState extends State<MainProductPage> {
             ),
           ),
           // showing the body
-          Expanded(child: SingleChildScrollView(
+          const Expanded(child: SingleChildScrollView(
             child: ProductPageBody(),
           ))
         ],

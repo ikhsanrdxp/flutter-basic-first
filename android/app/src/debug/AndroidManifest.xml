@@ -8,6 +8,7 @@
             android:usesCleartextTraffic="true"
             android:icon="@mipmap/ic_launcher"
             android:allowBackup="false"
+            android:enableOnBackInvokedCallback="true"
             >
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
