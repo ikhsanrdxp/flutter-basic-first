@@ -107,6 +107,7 @@ class PopularProductDetail extends StatelessWidget {
                     height: 20,
                   ),
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       BigText(
                         text: "Introduce",
